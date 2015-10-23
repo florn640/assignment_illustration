@@ -1,16 +1,20 @@
 // illustration.js
 var backgroundImg;
 var castleImg;
+var smokeImg;
 var cloud1Img;
 var cloud2Img;
 var cloud3Img;
 var flying1Img;
 var flying2Img;
 var tacoImg;
+var xPositions = [];
+var yPositions = [];
 
 function preload() {
 	backgroundImg = loadImage("images/background.png");
 	castleImg = loadImage("images/castle.png");
+	smokeImg = loadImage("images/smoke.png");
 	cloud1Img = loadImage("images/cloud1.png");
 	cloud2Img = loadImage("images/cloud2.png");
 	cloud3Img = loadImage("images/cloud3.png");
@@ -22,6 +26,10 @@ function preload() {
 
 function setup() {
 	createCanvas(800, 600);
+	for (var i = 0; i < 10; i++) {
+		xPositions[i] = random(0, 640);
+		yPositions[i] = random(0, 480);
+	}
 }
 
 function draw() {
@@ -43,7 +51,15 @@ function draw() {
 	//moving wings while clicked
 	frameRate(10);
 	if (mouseIsPressed) {
-		image(flying1Img, mouseX - 170, mouseY - 170);
+		background(0, 0, 0);
+
+		for (var i = 0; i < 10000; i++) {
+			xPositions[i] = xPositions[i] + random(-20, 20);
+			yPositions[i] = yPositions[i] + random(-20, 20);
+			image(tacoImg, xPositions[i], yPositions[i]);
+		}
+		image(smokeImg, random(0, 3), random(100, 103));
+		image(flying1Img, mouseX - 190, mouseY - 20);
 	} else {
 		image(flying2Img, mouseX - 170, mouseY - 170);
 	}
