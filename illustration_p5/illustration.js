@@ -1,4 +1,6 @@
 // illustration.js
+
+//variables
 var backgroundImg;
 var castleImg;
 var smokeImg;
@@ -11,6 +13,7 @@ var tacoImg;
 var xPositions = [];
 var yPositions = [];
 
+// images
 function preload() {
 	backgroundImg = loadImage("images/background.png");
 	castleImg = loadImage("images/castle.png");
@@ -38,22 +41,13 @@ function draw() {
 	image(cloud2Img, random(180, 185), 150);
 	image(cloud3Img, random(0, 5), 10);
 	image(castleImg, 0, 200);
-	//image(flying1Img, 100, mouseY);
-	//image(tacoImg, random(0, 800), random(0, 600));
-	//	var flyIng = random(0, 0.5);
-	//	console.log("The random flyIng value is: " + flyIng);
-	//	if (flyIng > 0 && flyIng < 0.25) {
-	//		image(flying1Img, mouseX - 170, mouseY - 170);
-	//	} else {
-	//		image(flying2Img, mouseX - 170, mouseY - 170);
-	//	}
-	//	loop();
-	//moving wings while clicked
+
+	//moving wings while clicked / background change / tacos
 	frameRate(10);
 	if (mouseIsPressed) {
 		background(0, 0, 0);
 
-		for (var i = 0; i < 10000; i++) {
+		for (var i = 0; i < 10; i++) {
 			xPositions[i] = xPositions[i] + random(-20, 20);
 			yPositions[i] = yPositions[i] + random(-20, 20);
 			image(tacoImg, xPositions[i], yPositions[i]);
