@@ -26,22 +26,26 @@ function setup() {
 
 function draw() {
 	image(backgroundImg, 0, 0);
-	frameRate(1);
-	image(cloud1Img, random(370, 350), 50);
-	image(cloud2Img, random(180, 210), 150);
-	image(cloud3Img, random(0, 30), 10);
+	image(cloud1Img, random(370, 375), 50);
+	image(cloud2Img, random(180, 185), 150);
+	image(cloud3Img, random(0, 5), 10);
 	image(castleImg, 0, 200);
 	//image(flying1Img, 100, mouseY);
 	//image(tacoImg, random(0, 800), random(0, 600));
-
+	//	var flyIng = random(0, 0.5);
+	//	console.log("The random flyIng value is: " + flyIng);
+	//	if (flyIng > 0 && flyIng < 0.25) {
+	//		image(flying1Img, mouseX - 170, mouseY - 170);
+	//	} else {
+	//		image(flying2Img, mouseX - 170, mouseY - 170);
+	//	}
+	//	loop();
+	//moving wings while clicked
+	frameRate(10);
 	if (mouseIsPressed) {
 		image(flying1Img, mouseX - 170, mouseY - 170);
 	} else {
 		image(flying2Img, mouseX - 170, mouseY - 170);
 	}
 
-	//image(tacoImg, random(0, 800), random(0, 600));
-	//image(flying2Img, mouseX, mouseY);
-	//else
-	//	image(flying2Img, mouseX - 170, 350, 330);
 }
