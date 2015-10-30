@@ -13,6 +13,7 @@ var tacoImg;
 var xPositions = [];
 var yPositions = [];
 
+
 // images
 function preload() {
 	backgroundImg = loadImage("images/background.png");
@@ -42,20 +43,29 @@ function draw() {
 	image(cloud3Img, random(0, 5), 10);
 	image(castleImg, 0, 200);
 
-	//moving wings while clicked / background change / tacos
-	frameRate(10);
+	//chaging world
+	//console.log(mouseX, mouseY); &&
 	if (mouseIsPressed) {
+		// &&
+		//mouseX > 486 &&
+		//mouseX < 536 &&
+		//mouseY < 415 &&
+		//mouseY > 456) {
 		background(0, 0, 0);
-
 		for (var i = 0; i < 10; i++) {
 			xPositions[i] = xPositions[i] + random(-20, 20);
 			yPositions[i] = yPositions[i] + random(-20, 20);
 			image(tacoImg, xPositions[i], yPositions[i]);
+			image(smokeImg, random(0, 3), random(100, 103));
 		}
-		image(smokeImg, random(0, 3), random(100, 103));
-		image(flying1Img, mouseX - 190, mouseY - 20);
-	} else {
-		image(flying2Img, mouseX - 170, mouseY - 170);
 	}
 
+	//moving wings
+	frameRate(9);
+	var dragonWings = random(1);
+	if (dragonWings < 0.5) {
+		image(flying2Img, mouseX - 170, mouseY - 170);
+	} else {
+		image(flying1Img, mouseX - 220, mouseY - 45);
+	}
 }
